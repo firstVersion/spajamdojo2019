@@ -33,6 +33,7 @@ func main() {
 
 func getEvents(w http.ResponseWriter, r *http.Request) {
   log.Println("getEvents()");
+  w.Header().Set("Content-Type","application/json")
   d, _ := json.Marshal(model.GetEvents())
   fmt.Fprintf(w, string(d))
 }
@@ -40,6 +41,7 @@ func getScores(w http.ResponseWriter, r *http.Request) {
   // 指定がないと全てのデータを出力するようなものにする
   log.Println("getScores()");
   d, _ := json.Marshal(model.GetScores())
+  w.Header().Set("Content-Type","application/json")
   fmt.Fprintf(w, string(d))
 }
 func addEvent(w http.ResponseWriter, r *http.Request) {
@@ -48,11 +50,13 @@ func addEvent(w http.ResponseWriter, r *http.Request) {
   bet,_ := strconv.Atoi(r.URL.Query().Get("bet"))
   term,_ := strconv.Atoi(r.URL.Query().Get("term"))
   model.AddBet(term,bet);
-  fmt.Fprintf(w, "json")
+  w.Header().Set("Content-Type","application/json")
+  fmt.Fprintf(w, "{\"status\":\"ok\"}")
 }
 func addDistance(w http.ResponseWriter, r *http.Request) {
   // 指定がないと全てのデータを出力するようなものにする
   log.Println("addDistance()");
   model.AddDistance();
-  fmt.Fprintf(w, "json")
+  w.Header().Set("Content-Type","application/json")
+  fmt.Fprintf(w, "{\"status\":\"ok\"}")
 }
