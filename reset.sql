@@ -3,7 +3,6 @@ DROP TABLE scores;
 DROP TABLE bets;
 DROP TABLE terms;
 DROP TABLE users;
-\i sql/db_spajamdojo2019.sql
 \i sql/table01_users.sql
 \i sql/table02_scores.sql
 \i sql/table03_bets.sql

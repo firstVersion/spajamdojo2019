@@ -8,6 +8,7 @@ import (
   "log"
 	"net/http"
   "encoding/json"
+  "strconv"
 )
 
 
@@ -44,7 +45,9 @@ func getScores(w http.ResponseWriter, r *http.Request) {
 func addEvent(w http.ResponseWriter, r *http.Request) {
   // 指定がないと全てのデータを出力するようなものにする
   log.Println("addEvent()");
-  model.AddBet(2,3000);
+  bet,_ := strconv.Atoi(r.URL.Query().Get("bet"))
+  term,_ := strconv.Atoi(r.URL.Query().Get("term"))
+  model.AddBet(term,bet);
   fmt.Fprintf(w, "json")
 }
 func addDistance(w http.ResponseWriter, r *http.Request) {
