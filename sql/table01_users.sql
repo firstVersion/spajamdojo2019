@@ -1,4 +1,4 @@
-\c cown
+\c spajamdojo2019
 -- Table: public.users
 
 -- DROP TABLE public.users;
