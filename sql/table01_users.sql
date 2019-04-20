@@ -10,7 +10,7 @@ CREATE TABLE public.users
     avater_path character varying(256),
     created_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT "Users_pkey" PRIMARY KEY (id)
+    CONSTRAINT "Users_pkey" PRIMARY KEY (user_id)
 )
 WITH (
     OIDS = FALSE
