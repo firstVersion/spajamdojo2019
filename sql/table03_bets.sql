@@ -1,4 +1,4 @@
-\c cown
+\c spajamdojo2019
 -- Table: public.messages
 
 -- DROP TABLE public.messages;

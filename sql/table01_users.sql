@@ -17,5 +17,5 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE cown.public.users
+ALTER TABLE spajamdojo2019.public.users
     OWNER to root;
