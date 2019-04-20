@@ -41,7 +41,10 @@ func GetScores() Score {
     , public.users AS u
     , public.scores AS s
     WHERE s.user_id = u.user_id
-    AND b.user_id = s.user_id;`)
+    AND b.user_id = s.user_id
+    AND u.user_id = 1
+    AND s.term = 1
+    AND s.team_id = 1;`)
 	return scores[0]
 }
 
@@ -64,8 +67,36 @@ func GetEvents() []Event {
     AND b.user_id = u.user_id
     AND t.term_id = s.term
     AND u.user_id = 1
-    GROUP BY s.term
+    GROUP BY s.term;
     `)
 	fmt.Println(events)
 	return events
+}
+
+func AddBet(term int, bet int) {
+	db, err := sqlx.Open("postgres", "host=postgres user=root password=root dbname=spajamdojo2019 sslmode=disable")
+	defer db.Close()
+	if err != nil {
+		fmt.Println(err)
+	}
+  _, err = db.Exec(`INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 1, $1, 1, 0);`,term)
+  if err != nil {
+		fmt.Println(err)
+	}
+  _, err = db.Exec(`INSERT INTO bets ( user_id, amount, term, team_id ) VALUES( 1, $2, $1, 1);`,term,bet)
+  if err != nil {
+		fmt.Println(err)
+	}
+}
+
+func AddDistance() {
+	db, err := sqlx.Open("postgres", "host=postgres user=root password=root dbname=spajamdojo2019 sslmode=disable")
+	defer db.Close()
+	if err != nil {
+		fmt.Println(err)
+	}
+  _, err = db.Exec(`UPDATE public.scores SET distance=distance+1 WHERE user_id=1 AND term=1 AND team_id=1;`)
+  if err != nil {
+		fmt.Println(err)
+	}
 }
