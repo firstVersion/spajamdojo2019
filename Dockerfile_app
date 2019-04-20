@@ -1,0 +1,15 @@
+FROM centos:6
+
+RUN yum update -y && yum clean all
+RUN yum install -y curl git
+RUN curl https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz | tar -C /usr/local -xz
+ENV PATH $PATH:/usr/local/go/bin
+RUN echo $PATH
+RUN go get github.com/gorilla/websocket
+RUN go get github.com/gorilla/sessions
+RUN go get github.com/jmoiron/sqlx
+RUN go get github.com/lib/pq
+
+EXPOSE 8080:8080
+WORKDIR "/root/chrome_chat_server"
+ENTRYPOINT go run /root/chrome_chat_server/*.go
