@@ -8,11 +8,12 @@ import (
 )
 
 type Score struct {
-	UserID    int    `db:"user_id" json:"user_id"`
-  UserName  string `db:"user_name" json:"user_name"`
-	Term      int    `db:"term"    json:"term"`
-	TeamID    int    `db:"team_id" json:"team_id"`
-	Amount    int    `db:"amount"  json:"amount"`
+	//UserID    int    `db:"user_id" json:"user_id"`
+  //UserName  string `db:"user_name" json:"user_name"`
+	//Term      int    `db:"term"    json:"term"`
+	//TeamID    int    `db:"team_id" json:"team_id"`
+  Distance  int    `db:"distance" json:"distance"`
+	//Amount    int    `db:"amount"  json:"amount"`
 }
 
 type Event struct {
@@ -21,7 +22,7 @@ type Event struct {
 }
 
 
-func GetScores() []Score {
+func GetScores() Score {
 	db, err := sqlx.Open("postgres", "host=postgres user=root password=root dbname=spajamdojo2019 sslmode=disable")
 	defer db.Close()
 	if err != nil {
@@ -30,18 +31,18 @@ func GetScores() []Score {
 	scores := []Score{}
 	db.Select(&scores, `
     SELECT
-    u.user_id
-    ,u.user_name
-    ,s.term
-    ,s.team_id
-    ,b.amount
+    --u.user_id
+    --,u.user_name
+    --,s.term
+    --,s.team_id
+    s.distance
+    --,b.amount
     FROM public.bets AS b
     , public.users AS u
     , public.scores AS s
     WHERE s.user_id = u.user_id
     AND b.user_id = s.user_id;`)
-	fmt.Println(scores)
-	return scores
+	return scores[0]
 }
 
 func GetEvents() []Event {

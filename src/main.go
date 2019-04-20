@@ -31,13 +31,13 @@ func main() {
 }
 
 func getEvents(w http.ResponseWriter, r *http.Request) {
-  d, _ := json.Marshal(model.GetEvents());
+  d, _ := json.Marshal(model.GetEvents())
   fmt.Fprintf(w, string(d))
 }
 func getScores(w http.ResponseWriter, r *http.Request) {
   // 指定がないと全てのデータを出力するようなものにする
-  model.GetScores();
-  fmt.Fprintf(w, "json")
+  d, _ := json.Marshal(model.GetScores())
+  fmt.Fprintf(w, string(d))
 }
 func addEvent(w http.ResponseWriter, r *http.Request) {
   // 指定がないと全てのデータを出力するようなものにする
