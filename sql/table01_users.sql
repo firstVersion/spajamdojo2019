@@ -6,8 +6,8 @@
 CREATE TABLE public.users
 (
     user_id serial NOT NULL,
-    user_name character varying(256) COLLATE pg_catalog."default",
-    avater_path character varying(256) COLLATE pg_catalog."default",
+    user_name character varying(256),
+    avater_path character varying(256),
     created_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT "Users_pkey" PRIMARY KEY (id)
