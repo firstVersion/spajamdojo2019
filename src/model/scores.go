@@ -22,7 +22,7 @@ type Event struct {
 }
 
 
-func GetScores() Score {
+func GetScores() []Score {
 	db, err := sqlx.Open("postgres", "host=postgres user=root password=root dbname=spajamdojo2019 sslmode=disable")
 	defer db.Close()
 	if err != nil {
