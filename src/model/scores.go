@@ -35,16 +35,17 @@ func GetScores() []Score {
     --,u.user_name
     --,s.term
     --,s.team_id
-    s.distance
+    SUM(s.distance) AS distance
     --,b.amount
     FROM public.bets AS b
     , public.users AS u
     , public.scores AS s
     WHERE s.user_id = u.user_id
     AND b.user_id = s.user_id
-    AND u.user_id = 1
     AND s.term = 1
-    AND s.team_id = 1;`)
+    AND s.team_id = 1
+    GROUP BY s.user_id
+    ORDER BY s.user_id;`)
 	return scores;
 }
 
