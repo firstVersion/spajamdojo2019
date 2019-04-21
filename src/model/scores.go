@@ -45,7 +45,7 @@ func GetScores() Score {
     AND u.user_id = 1
     AND s.term = 1
     AND s.team_id = 1;`)
-	return scores[0]
+	return scores;
 }
 
 func GetEvents() []Event {
