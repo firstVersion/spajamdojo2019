@@ -89,13 +89,13 @@ func AddBet(term int, bet int) {
 	}
 }
 
-func AddDistance() {
+func AddDistance( user_id int ) {
 	db, err := sqlx.Open("postgres", "host=postgres user=root password=root dbname=spajamdojo2019 sslmode=disable")
 	defer db.Close()
 	if err != nil {
 		fmt.Println(err)
 	}
-  _, err = db.Exec(`UPDATE public.scores SET distance=distance+1 WHERE user_id=1 AND term=1 AND team_id=1;`)
+  _, err = db.Exec(`UPDATE public.scores SET distance=distance+1 WHERE user_id=$1 AND term=1 AND team_id=1;`, user_id)
   if err != nil {
 		fmt.Println(err)
 	}

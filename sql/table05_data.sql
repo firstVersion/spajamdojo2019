@@ -6,14 +6,14 @@ INSERT INTO users (user_name) VALUES('しゅう');
 INSERT INTO users (user_name) VALUES('くどう');
 INSERT INTO users (user_name) VALUES('やの');
 
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 1, 1, 1, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 1, 1, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 3, 1, 2, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 4, 1, 2, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 5, 1, 2, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 2, 1, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 3, 1, 100);
-INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 4, 1, 100);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 1, 1, 1, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 1, 1, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 3, 1, 2, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 4, 1, 2, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 5, 1, 2, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 2, 1, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 3, 1, 0);
+INSERT INTO scores ( user_id, term, team_id, distance ) VALUES( 2, 4, 1, 0);
 
 
 INSERT INTO bets ( user_id, amount, term, team_id ) VALUES( 1, 1000, 1, 1);

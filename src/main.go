@@ -56,7 +56,8 @@ func addEvent(w http.ResponseWriter, r *http.Request) {
 func addDistance(w http.ResponseWriter, r *http.Request) {
   // 指定がないと全てのデータを出力するようなものにする
   log.Println("addDistance()");
-  model.AddDistance();
+  user_id, _ := strconv.Atoi(r.URL.Query().Get("user_id"))
+  model.AddDistance(user_id);
   w.Header().Set("Content-Type","application/json")
   fmt.Fprintf(w, "{\"status\":\"ok\"}")
 }
