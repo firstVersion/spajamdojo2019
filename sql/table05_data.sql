@@ -22,7 +22,7 @@ INSERT INTO bets ( user_id, amount, term, team_id ) VALUES( 3, 1000, 2, 1);
 INSERT INTO bets ( user_id, amount, term, team_id ) VALUES( 4, 1000, 2, 1);
 INSERT INTO bets ( user_id, amount, term, team_id ) VALUES( 5, 1000, 2, 1);
 
-INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 1, '2019.04/01', '2019.04/7');
-INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 2, '2019.04/08', '2019.04/14');
-INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 3, '2019.04/15', '2019.04/21');
-INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 4, '2019.04/22', '2019.04/28');
+INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 1, '2019.04/14', '2019.04/20');
+INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 2, '2019.04/21', '2019.04/27');
+INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 3, '2019.04/28', '2019.05/04');
+INSERT INTO terms ( term_id, t_from, t_to ) VALUES( 4, '2019.05/05', '2019.05/11');
